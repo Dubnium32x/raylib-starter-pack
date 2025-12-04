@@ -1,0 +1,64 @@
+// =============================================================
+// Sprite object header
+// =============================================================
+// This header defines the SpriteObject structure and related
+#ifndef SPRITE_OBJECT_H
+#define SPRITE_OBJECT_H
+
+#include <raylib.h>
+#include <stdbool.h>
+
+// Sprite object constants
+#define MAX_SPRITE_NAME_LENGTH 64
+#define MAX_SPRITE_FRAMES 64
+
+// Sprite types
+typedef enum {
+    PLAYER,
+    ENEMY,
+    ITEM,
+    BACKGROUND,
+    EFFECT,
+    UI,
+    NORMAL,
+    DECOR,
+    OTHERS,
+    NULL_TYPE
+} SpriteType;
+
+// Sprite object structure
+typedef struct {
+    int id;
+    char* name;
+    Texture2D texture;
+    Vector2 position;
+    Vector2 scale;
+    Color tint;
+    float rotation; // in degrees
+    SpriteType type;
+    bool visible;
+
+    int currentFrame;
+    int totalFrames;
+    float frameTime; // Time per frame in seconds
+    float frameTimer; // Accumulated time for frame switching
+    bool animating;
+    Vector2 origin; // Origin point for rotation and scaling
+} SpriteObject;
+
+// Sprite object functions
+void InitSpriteObject(SpriteObject* sprite, int id, const char* name, Texture2D texture, Vector2 position, Vector2 scale, Color tint, float rotation, SpriteType type);
+void UpdateSpriteObject(SpriteObject* sprite, float deltaTime);
+void DrawSpriteObject(const SpriteObject* sprite);
+void SetPosition(SpriteObject* sprite, Vector2 position);
+void SetScale(SpriteObject* sprite, Vector2 scale);
+void SetTint(SpriteObject* sprite, Color tint);
+void SetPaletteColor(SpriteObject* sprite, Color color); // Example of additional function
+void SetSpriteVisible(SpriteObject* sprite, bool visible);
+void SetRotation(SpriteObject* sprite, float rotation);
+void StartAnimation(SpriteObject* sprite, int totalFrames, float frameTime);
+void StopSpriteAnimation(SpriteObject* sprite);
+void SetSpriteAnimationFrame(SpriteObject* sprite, int frame);
+void UnloadSpriteObject(SpriteObject* sprite);
+
+#endif // SPRITE_OBJECT_H
