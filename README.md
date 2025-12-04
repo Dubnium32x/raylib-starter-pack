@@ -45,3 +45,8 @@ We are looking to cover this starter pack with tutorials and expand its features
 
 ##### No License at this time.
 For any questions or support, please open an issue on the GitHub repository. Happy coding!
+
+### Credits to assets
+- Fonts: [1001 Fonts](https://1001fonts.com/)
+- Audio: [Tempest 4000](https://sounds.spriters-resource.com/pc_computer/tempest4000/asset/414544/)
+- Images: [OpenGameArt](https://opengameart.org/content/150kmph-3color-palette-aircraft)
